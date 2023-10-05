@@ -1,0 +1,10 @@
+{
+    "database":{
+        "mysql":{
+            "host":"localhost",
+            "user":"root",
+            "database":"birjadb",
+            "password":"root"
+        }
+    }
+}
