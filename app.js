@@ -5,10 +5,21 @@ const mysql = require('mysql2');
 import config from './config.json';
 
 const app = express();
+
+
+//обработчики запросов
+
+//аутентификация
+app.post('/login',function(request,response)
+{
+    
+})
 //обработчик события "/"
 app.get('/',function(request,response){
     response.send("<h2>1<h2>")
 })
+
+
 
 app.listen(5000)
 
