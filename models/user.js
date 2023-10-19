@@ -1,7 +1,34 @@
-const mysql = require("mysql2");
+import mongoose from 'mongoose'
 
-class User {
-    constructor(login, password){
-    this.login = login;
-    this.password = password;}
-}
+const {Schema, model} = mongoose
+
+const userSchema = new Schema (
+    {
+        username: {
+            type: String,
+            required: true,
+            unique: true
+        },
+
+        email: {
+            type: String, 
+            required: true,
+            unique: true
+        },
+        password: {
+            type: String,
+            required: true,
+            select: false
+        },
+        role: {
+            type: String,
+            enum: ['UNREG', 'COMPANY','STUDENT','ADMIN'],
+            default: 'USER',
+            required:true
+        }
+    },
+    {
+        timestamps: true
+    }
+)
+export default model('User', userSchema)
