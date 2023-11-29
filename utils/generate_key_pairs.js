@@ -1,11 +1,11 @@
-import crypto, { generateKeyPairSync } from 'crypto';
+import crypto from 'crypto';
  
 import { writeFileSync} from 'fs';
 
 
 function generateKeyPair(){
 
-    const keyPairs = crypto.generateKeyPairSync('rsa',{
+    const keyPair = crypto.generateKeyPairSync('rsa',{
         modulusLength: 4096,
         publicKeyEncoding: {
           type: 'pkcs1',
@@ -17,8 +17,8 @@ function generateKeyPair(){
         }
     })
 
-    writeFileSync('./config/public_key.pem', keyPair.publicKey);
-    writeFileSync('./config/private_key.pem', keyPair.privateKey);
+    writeFileSync('../config/public_key.pem', keyPair.publicKey);
+    writeFileSync('../config/private_key.pem', keyPair.privateKey);
 }
 
 generateKeyPair()
