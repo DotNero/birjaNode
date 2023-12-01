@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-
+const UserDto = require('../dtos/user-dto');
 class MailService {
 
     constructor() {
