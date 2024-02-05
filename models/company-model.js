@@ -1,6 +1,6 @@
 const {Schema, model} = require('mongoose');
 
-const CompanyModel = new Schema({
+const CompanySchema = new Schema({
     user: {type: Schema.Types.ObjectId, ref: 'User'},
     name: {type: Schema.Types.String, unique: true, required: true},
  //   photos: {type: Schema.Types.String},
@@ -9,4 +9,4 @@ const CompanyModel = new Schema({
     asAdministrated: {type: Schema.Types.Boolean}
 })
 
-module.exports = model('Company', CompanyModel);
+module.exports = model('Company', CompanySchema);

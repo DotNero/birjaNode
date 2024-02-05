@@ -1,12 +1,15 @@
 const {Schema, model} = require('mongoose');
 
-const StudentModel = new Schema({
+const StudentSchema = new Schema({
     user: {type: Schema.Types.ObjectId, ref: 'User'},
     name: {type: Schema.Types.String, unique: true, required: true},
- //   photos: {type: Schema.Types.String},
-//  city: {type: Schema.Types.String},
     surname: {type: Schema.Types.String},
-    asVerified: {type: Schema.Types.Boolean}
+    second_name: {type: Schema.Types.String},
+    birth_date: {type: Schema.Types.Date},
+    telephon_number: {type: Schema.Types.String},
+    education_data: {type: Schema.Types.String}, //json
+    avatar: {type: Schema.Types.String},
+    isVerified: {type: Schema.Types.Boolean}
 })
 
-module.exports = model('Student', StudentModel);
+module.exports = model('Student', StudentSchema);

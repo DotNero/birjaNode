@@ -16,7 +16,10 @@ class UserService {
         const activationLink = uuid.v4(); // v34fa-asfasf-142saf-sa-asf
         const role = 'undefined';
         const user = await UserModel.create({email, password: hashPassword, activationLink, role})
-        await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`);
+        
+        //await mailService.sendActivationMail(email, `${process.env.API_URL}/api/activate/${activationLink}`);
+     
+    
 
         const userDto = new UserDto(user); // id, email, isActivated
         const tokens = tokenService.generateTokens({...userDto});
@@ -28,7 +31,7 @@ class UserService {
     async activate(activationLink) {
         const user = await UserModel.findOne({activationLink})
         if (!user) {
-            throw ApiError.BadRequest('Неккоректная ссылка активации')
+            throw ApiError.BadRequest('Некорректная ссылка активации')
         }
         user.isActivated = true;
         await user.save();

@@ -1,7 +1,6 @@
 const {Schema, model} = require('mongoose');
-const TokenModel = require('./token-model');
 
-const UserSchema = new Schema({
+const VacancySchema = new Schema({
     email: {type: String, unique: true, required: true},
     password: {type: String, required: true},
     isActivated: {type: Boolean, default: false},
@@ -9,4 +8,4 @@ const UserSchema = new Schema({
     role: {type: String}
 })
 
-module.exports = model('User', UserSchema);
+module.exports = model('User', VacancySchema);

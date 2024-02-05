@@ -17,7 +17,19 @@ class CompanyController{
             next(e);
         }
     }
-
+    async update(req,res,next){
+        try{
+            const errors = validationResult(req);
+            if(!error.isEmpty()) {
+                return next(ApiError.BadRequest('Ошибка при валидации', errors.array()));
+            }
+            const {user_id, name, about} = req.body;
+            
+            
+        }
+    catch(e){
+        next(e);
+    }}
 }
 
 module.exports = new CompanyController();
