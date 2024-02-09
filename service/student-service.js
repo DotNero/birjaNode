@@ -41,7 +41,7 @@ class StudentService{
         const student = await StudentModel.updateOne(filter, update);
         const StudentData = new StudentDto(student);
 
-        return StudentData
+        return StudentData;
     }
 
 }

@@ -20,7 +20,7 @@ router.post('/student-update', authMiddleware, studentController.update);
 router.get('/activate/:link', userController.activate);
 router.get('/refresh', userController.refresh);
 router.get('/users', authMiddleware, userController.getUsers);
-router.get('/test', userController.test);
+router.get('/test',authMiddleware, userController.test);
 
 
 module.exports = router

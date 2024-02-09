@@ -3,7 +3,7 @@ const {validationResult} = require('express-validator');
 const ApiError = require('../exceptions/api-error');
 
 class UserController {
-    async test(res, next){
+    async test(req, res, next){
         try{
             return res.json(["123","456"]);
         }
@@ -48,6 +48,7 @@ class UserController {
             next(e);
         }
     }
+
 
     async activate(req, res, next) {
         try {
