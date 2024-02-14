@@ -24,10 +24,7 @@ class StudentService{
         console.log(user_id);
         const student = await StudentModel.create({user: user_id, name, second_name, surname, education_data, telephon_number, birth_date, isVerified});
         const studentDto = new StudentDto(student);
-        const role_change_result = await UserModel.updateOne({id: user_id}, {role: 'company'});
-        if(!role_change_result){
-            throw ApiError.BadRequest('Не получилось изменить роль');
-        }
+        await UserModel.updateOne({id: user_id}, {role: "student"});
         return(studentDto);
     }
 

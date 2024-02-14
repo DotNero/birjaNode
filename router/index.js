@@ -19,7 +19,7 @@ router.post('/student-registration', authMiddleware, studentController.registrai
 router.post('/student-update', authMiddleware, studentController.update);
 router.get('/activate/:link', userController.activate);
 router.get('/refresh', userController.refresh);
-router.get('/users', authMiddleware, userController.getUsers);
+router.get('/users', userController.getUsers);
 router.get('/test',authMiddleware, userController.test);
 
 

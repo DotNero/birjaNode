@@ -9,7 +9,8 @@ class StudentController{
             if(!errors.isEmpty()) {
                 return next(ApiError.BadRequest('Ошибка при валидации', errors.array()))
             }
-            const user_id = req.user.id;
+            const user_id = req.user._id;
+            console.log(user_id);
             const {name, second_name, surname, education_data, telephon_number, birth_date} = req.body;
             const StudentData = await StudentService.registration(user_id, name, second_name, surname, education_data, telephon_number, birth_date);
             return res.json(StudentData);

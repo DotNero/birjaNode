@@ -53,6 +53,11 @@ class UserService {
         return {...tokens, user: userDto}
     }
 
+    async get_users() {
+        const users = await UserModel.find();
+        return {...users}
+    }
+
     async logout(refreshToken) {
         const token = await tokenService.removeToken(refreshToken);
         return token;
